@@ -1,1 +1,1 @@
-# Appdev-Project
+# Projeto para a disciplina de Desenvolvimento de Aplicativos
