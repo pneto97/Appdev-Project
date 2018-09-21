@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     public void openNewAdventureActivity() {
 
         Intent intent = new Intent(this, NewAdventureActivity.class);
