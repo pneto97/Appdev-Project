@@ -7,11 +7,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.support.v7.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
     String msg = "Android : ";
-    private ImageButton new_adventure_button;
+
+    ImageButton new_adventure_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

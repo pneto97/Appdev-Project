@@ -20,25 +20,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple">
+    android:background="@color/purple"
+    android:layout_below="@+id/my_toolbar" >
 
-    <!--<TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:padding="@dimen/muh_padding"
-        android:text="@string/hello_world"
-        tools:context=".MainActivity"
-        android:id="@+id/textView" />-->
 
- <!--   <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="65dp"
-        android:text="Hello, I am a Button" />-->
+    <include layout="@layout/toolbar"/>
 
     <ImageButton
         android:id="@+id/button_new_adventure"

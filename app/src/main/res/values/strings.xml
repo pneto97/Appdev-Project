@@ -4,5 +4,4 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <dimen name="test_padding">20px</dimen>>
-    <color name="purple">#220035</color>
 </resources>
