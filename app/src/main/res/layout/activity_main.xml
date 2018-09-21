@@ -19,23 +19,39 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/purple">
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:padding="@dimen/muh_padding"
         android:text="@string/hello_world"
-        tools:context=".MainActivity" />
+        tools:context=".MainActivity"
+        android:id="@+id/textView" />-->
 
-    <Button
+ <!--   <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="173dp"
-        android:text="Hello, I am a Button" />
+        android:layout_marginBottom="65dp"
+        android:text="Hello, I am a Button" />-->
+
+    <ImageButton
+        android:id="@+id/button_new_adventure"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="46dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/botao_criar_nova_aventura" />
+    <!--android:background="@null"-->
+
 
 </RelativeLayout>
