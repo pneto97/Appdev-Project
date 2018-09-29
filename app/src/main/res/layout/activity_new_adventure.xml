@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context="br.unb.appdev.igor.NewAdventureActivity">
 
+    <include layout="@layout/toolbar"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
