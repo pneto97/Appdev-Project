@@ -1,5 +1,6 @@
 package br.unb.appdev.igor;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     String msg = "Android : ";
     private ImageButton new_adventure_button;
+    private Button startBotao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openNewAdventureActivity();
+            }
+        });
+
+        startBotao = (Button) findViewById(R.id.startid);
+        startBotao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
     }

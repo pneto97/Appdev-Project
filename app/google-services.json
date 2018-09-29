@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "495895388500",
+    "firebase_url": "https://igor-app.firebaseio.com",
+    "project_id": "igor-app",
+    "storage_bucket": "igor-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495895388500:android:6bcf8468beec504d",
+        "android_client_info": {
+          "package_name": "br.unb.appdev.igor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "495895388500-evfi1gpkdut6vjaf662j97shib2m9u7u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.unb.appdev.igor",
+            "certificate_hash": "ff95fa5632638c9612bfa7f1ef6c53a003c6b348"
+          }
+        },
+        {
+          "client_id": "495895388500-ftjjo38nj989jioukgruhljhfhqd6pot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhyStiDoRRdVZXE5gdUMnQjvDqPgmf3e8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "495895388500-ftjjo38nj989jioukgruhljhfhqd6pot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
