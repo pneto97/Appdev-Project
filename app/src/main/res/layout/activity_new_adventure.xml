@@ -4,20 +4,109 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_inicial"
     tools:context="br.unb.appdev.igor.NewAdventureActivity">
 
-    <include layout="@layout/toolbar"/>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/pop_up_nova_aventura" />
+
+    <ImageView
+        android:id="@+id/x_new_adventureid"
+        android:layout_width="10dp"
+        android:layout_height="18dp"
+        android:layout_alignStart="@+id/imageView6"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/fechar_criacao_aventura" />
+
+    <ImageView
+        android:id="@+id/botaoProntoid"
+        android:layout_width="88dp"
+        android:layout_height="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="232dp"
+        android:layout_marginEnd="72dp"
+        app:srcCompat="@drawable/pronto_nova_aventura" />
+
+    <EditText
+        android:id="@+id/nomeAventuraid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="true"
-        android:padding="@dimen/test_padding"
-        android:text="NOVA AVENTURA"
-        android:textSize="30sp"
-        tools:context=".MainActivity" />
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="145dp"
+        android:ems="10"
+        android:hint="Digite um nome à sua aventura"
+        android:inputType="textMultiLine"
+        android:lines="2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/nomeAventuraid"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="107dp"
+        android:text="Criar aventura"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="11sp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="83dp"
+        android:layout_height="96dp"
+        android:layout_above="@+id/imageView6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="1dp"
+        app:srcCompat="@drawable/igor_barra" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="27dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="7dp"
+        app:srcCompat="@drawable/botao_menu_navegacao" />
+
+    <TextView
+        android:id="@+id/icone_fechar_newAdventureid"
+        android:layout_width="58dp"
+        android:layout_height="47dp"
+        android:layout_alignTop="@+id/x_new_adventureid"
+        android:layout_alignEnd="@+id/imageView6"
+        android:layout_marginTop="-15dp"
+        android:layout_marginEnd="4dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/nomeAventuraid"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginBottom="-145dp"
+        android:text="De um nome para a sua aventura"
+        android:textSize="11sp" />
 
 </RelativeLayout>
 
