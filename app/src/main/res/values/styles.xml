@@ -6,8 +6,17 @@
 
     <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">#FF331345</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:itemBackground">#decd8e</item>
+        <item name="actionOverflowButtonStyle">@style/DotsDarkTheme</item>
+        <!--<item name="android:tint">#decd8e</item>-->
     </style>
+
+    <style name="DotsDarkTheme" parent="@style/Widget.AppCompat.ActionButton.Overflow" >
+        <item name="android:tint">@color/item_background_color</item>
+    </style>
+
+
 
 </resources>
