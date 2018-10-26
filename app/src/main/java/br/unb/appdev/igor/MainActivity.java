@@ -2,6 +2,7 @@ package br.unb.appdev.igor;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -21,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.support.v7.widget.Toolbar;
@@ -31,13 +33,18 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     String msg = "Android : ";
     public enum Fragments {
-        HOME,NEWADVENTURE,ONGOING;
+        HOME,NEWADVENTURE,ONGOING,NEWSESSION;
     }
     public static Fragments fragAtual;
+    public static List<Adventure> adventures;
+
 
     private ImageButton new_adventure_button;
     private TextView nomeAventuraCorvali;
@@ -52,12 +59,24 @@ public class MainActivity extends AppCompatActivity {
 
     public static FragmentManager fragmentManager;
 
+    public static void hideKeyboard(Activity activity) {
+        InputMethodManager inputManager = (InputMethodManager) activity
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        // check if no view has focus:
+        View currentFocusedView = activity.getCurrentFocus();
+        if (currentFocusedView != null) {
+            inputManager.hideSoftInputFromWindow(currentFocusedView.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(msg, "Evento onCreate()");
+        adventures = new ArrayList<>();
 
         //defindo um layout portrait
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -83,7 +102,14 @@ public class MainActivity extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.nav_aventura:
                         item.setChecked(true);
-                        displayMessage("aventura");
+                        displayMessage("aventuras");
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragAtual = Fragments.HOME;
+                        HomeFragment homeFragment = new HomeFragment();
+                        fragmentManager.popBackStackImmediate(0, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                        fragmentTransaction.replace(R.id.fragment_container,homeFragment, null);
+
+                        fragmentTransaction.commit();
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.nav_livros:
@@ -257,7 +283,7 @@ public class MainActivity extends AppCompatActivity {
             alert.show();
         } else{
             fragmentManager.popBackStackImmediate();
-            fragAtual = Fragments.HOME;
+            //fragAtual = Fragments.HOME;
         }
 
     }

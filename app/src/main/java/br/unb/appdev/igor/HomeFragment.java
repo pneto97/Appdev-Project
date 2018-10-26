@@ -34,16 +34,42 @@ public class HomeFragment extends Fragment {
 
     private ImageButton newAdvButton;
 
-    private List<Adventure> adventure;
+    private List<Adventure> adventure = MainActivity.adventures;
 
     private void initializeList(){
-        adventure = new ArrayList<>();
+        //adventure = new ArrayList<>();
         adventure.add(new Adventure("Projeto I.G.O.R",R.drawable.heartlands));
         adventure.add(new Adventure("Campos de Nhame",R.drawable.corvali));
         adventure.add(new Adventure("Teste3",R.drawable.coast));
         adventure.add(new Adventure("Teste4",R.drawable.krevast));
         adventure.add(new Adventure("Teste5",R.drawable.heartlands));
         adventure.add(new Adventure("Teste6",R.drawable.corvali));
+    }
+
+    private int genImgID(int position){
+        int val = position%5;
+        int id = 0;
+        switch(val){
+
+            case 0:
+                id = R.drawable.coast;
+                break;
+            case 1:
+                id = R.drawable.krevast;
+                break;
+            case 2:
+                id = R.drawable.heartlands;
+                break;
+            case 3:
+                id = R.drawable.corvali;
+                break;
+            case 4:
+                id = R.drawable.miniatura_imagem_automatica;
+                break;
+            default:
+                id = R.drawable.miniatura_imagem_automatica;
+        }
+        return id;
     }
 
 
@@ -56,6 +82,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        MainActivity.fragAtual = MainActivity.Fragments.HOME;
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
@@ -65,7 +92,7 @@ public class HomeFragment extends Fragment {
 
         newAdvButton = view.findViewById(R.id.button_new_adventure);
 
-        initializeList();
+        //initializeList();
         RVAdapter adapter = new RVAdapter(adventure);
         recyclerView.setAdapter(adapter);
 
@@ -110,16 +137,31 @@ public class HomeFragment extends Fragment {
         public void onBindViewHolder(@NonNull AdventureViewHolder adventureViewHolder, final int position) {
             adventureViewHolder.advName.setText(adventureList.get(position).name);
             adventureViewHolder.advImg.setImageResource(adventureList.get(position).photoId);
+            //adventureViewHolder.advImg.setScaleType(ImageView.ScaleType.FIT_XY);
 
             adventureViewHolder.view.setOnClickListener(new View.OnClickListener() {  // <--- here
                 @Override
                 public void onClick(View v) {
 
                     MainActivity.fragAtual = MainActivity.Fragments.ONGOING;
+
+                    OngoingAdventureFragment onGoing = new OngoingAdventureFragment();
+
+                    Bundle bundle = new Bundle();
+
+                    bundle.putInt("posicaoAventura",position);
+                    onGoing.setArguments(bundle);
+
                     MainActivity.fragmentManager.beginTransaction().replace(
-                            R.id.fragment_container,new OngoingAdventureFragment(),
+                            R.id.fragment_container,onGoing,
                             null).addToBackStack(null).commit();
-                    Toast.makeText(v.getContext(), adventureList.get(position).name, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(v.getContext(), adventureList.get(position).name, Toast.LENGTH_SHORT).show();
+
+
+//                    MainActivity.fragmentManager.beginTransaction().replace(
+//                            R.id.fragment_container,new OngoingAdventureFragment(),
+//                            null).addToBackStack(null).commit();
+//                    Toast.makeText(v.getContext(), adventureList.get(position).name, Toast.LENGTH_SHORT).show();
 
                 }
             });

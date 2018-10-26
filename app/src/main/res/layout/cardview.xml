@@ -23,7 +23,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:maxWidth="135dp"
-            android:scaleType="center"
+            android:scaleType="fitXY"
             />
         <!--android:background="@drawable/coast"-->
 
@@ -37,6 +37,7 @@
             android:paddingLeft="50dp"
             android:paddingTop="25dp"
             android:textColor="#FFFFFF"
+            android:maxLines = "2"
 
             />
 
