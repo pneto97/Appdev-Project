@@ -5,9 +5,15 @@
     <color name="colorAccent">#050102</color>
 <!--    <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>-->
-    <color name="colorPrimary">#220035</color>
-    <color name="colorPrimaryDark">#220022</color>
+    <color name="colorPrimary">#221133</color>
+    <color name="colorPrimaryDark">#220020</color>
     <!--    <color name="colorAccent">#FF4081</color> -->
     <color name="purple">#220035</color>
+    <color name="item_background_color">#decd8e</color>
+    <color name="menu_icon_color">#f6d282</color>
+    <color name="drawer_text_color">#ff3d55</color>
+    <color name="new_adv_background">#146e6f</color>
+    <color name="blue_text">#18d5d7</color>
+
 
 </resources>

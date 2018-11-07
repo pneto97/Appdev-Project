@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardPreventCornerOverlap="false"
+    android:id="@+id/cv">
+    <!--app:cardBackgroundColor="@android:color/transparent">-->
+    <!--&gt;-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:id="@+id/bgadventure"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:maxWidth="135dp"
+            android:scaleType="fitXY"
+            />
+        <!--android:background="@drawable/coast"-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameAdventure"
+            android:layout_alignParentTop="true"
+            android:text="Nome da Aventura"
+            android:textSize="25sp"
+            android:paddingLeft="50dp"
+            android:paddingTop="25dp"
+            android:textColor="#FFFFFF"
+            android:maxLines = "2"
+
+            />
+
+        <ImageView
+            android:id="@+id/botaoExcluirCardid"
+            android:layout_width="31dp"
+            android:layout_height="32dp"
+            android:layout_alignBottom="@+id/bgadventure"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="95dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="8dp"
+            app:srcCompat="@drawable/botao_excluir" />
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

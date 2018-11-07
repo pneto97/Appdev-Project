@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_aventura"
+            android:icon="@drawable/aventuras_icone"
+            android:title="Aventuras"
+
+            />
+        <item
+            android:id="@+id/nav_livros"
+            android:icon="@drawable/livros_icone"
+            android:title="Livros"
+
+            />
+        <item
+            android:id="@+id/nav_conta"
+            android:icon="@drawable/conta_icone"
+            android:title="Conta"
+
+            />
+        <item
+            android:id="@+id/nav_notificacoes"
+            android:icon="@drawable/notificacoes_icone"
+            android:title="Notificações"
+
+            />
+        <item
+            android:id="@+id/nav_configuracoes"
+            android:icon="@drawable/configuracoes_icone"
+            android:title="Configurações"
+
+
+            />
+    </group>
+
+
+
+</menu>
