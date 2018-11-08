@@ -33,9 +33,13 @@ public class ContaConfigFragment extends Fragment {
 
 
     private ImageView botaoCriarPersonagem;
-    private TextView textoExibicaoPersonagem;
     private EditText nomePersonagem;
     private EditText nomeJogador;
+    private TextView textoExibicaoPersonagem;
+    private TextView textoExibicaoJogador;
+    private TextView textoExibicaoXp;
+    private TextView textoExibicaoHp;
+    private TextView textoExibicaoAtq;
     private AlertDialog.Builder dialog;
 
     public ContaConfigFragment() {
@@ -51,6 +55,10 @@ public class ContaConfigFragment extends Fragment {
 
         botaoCriarPersonagem = (ImageView) view.findViewById(R.id.botaoCriarPersonagemid);
         textoExibicaoPersonagem = (TextView) view.findViewById(R.id.textoExibicaoPersonagemid);
+        textoExibicaoJogador = (TextView) view.findViewById(R.id.textoExibicaoJogadorid);
+        textoExibicaoXp = (TextView) view.findViewById(R.id.textoExibicaoXpid);
+        textoExibicaoHp = (TextView) view.findViewById(R.id.textoExibicaoHpid);
+        textoExibicaoAtq = (TextView) view.findViewById(R.id.textoExibicaoAtqid);
         nomePersonagem = (EditText) view.findViewById(R.id.nomeNovoPersonagemid);
         nomeJogador = (EditText) view.findViewById(R.id.nomeNovoJogadorid);
 
@@ -60,7 +68,7 @@ public class ContaConfigFragment extends Fragment {
             public void onClick(View view) {
 
                 String jogadorNome = nomeJogador.getText().toString();
-                String personagemNome = nomePersonagem.getText().toString();
+                final String personagemNome = nomePersonagem.getText().toString();
 
                 final Personagens personagens = new Personagens();
                 personagens.setNomePersonagem(personagemNome);
@@ -84,8 +92,66 @@ public class ContaConfigFragment extends Fragment {
                         dialog.show();
 
                         //Log.i("PERSON", dataSnapshot.getValue().toString());
-                        //textoExibicaoPersonagem.setText(Log.i("PERSON", dataSnapshot.getValue().toString()));
+                    }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                personagensReferencias.child(personagemNome).child("nomePersonagem").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        textoExibicaoPersonagem.setText("•Nome personagem: " + String.valueOf(dataSnapshot.getValue()));
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                personagensReferencias.child(personagemNome).child("nomeJogador").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        textoExibicaoJogador.setText("•Nome jogador: " + String.valueOf(dataSnapshot.getValue()));
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                personagensReferencias.child(personagemNome).child("xp").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        textoExibicaoXp.setText("•Xp: " + String.valueOf(dataSnapshot.getValue()));
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                personagensReferencias.child(personagemNome).child("hp").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        textoExibicaoHp.setText("•Hp:" + String.valueOf(dataSnapshot.getValue()));
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                personagensReferencias.child(personagemNome).child("atq").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        textoExibicaoAtq.setText("•Ataque: " + String.valueOf(dataSnapshot.getValue()));
                     }
 
                     @Override

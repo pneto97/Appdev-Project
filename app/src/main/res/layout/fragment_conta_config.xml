@@ -19,16 +19,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/textoExibicaoPersonagemid"
-        android:layout_width="320dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="163dp"
-        android:layout_marginTop="244dp"
-        android:layout_marginEnd="163dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/nomeNovoPersonagemid"
@@ -55,5 +45,70 @@
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomeNovoPersonagemid" />
+
+    <TextView
+        android:id="@+id/textoExibicaoPersonagemid"
+        android:layout_width="313dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="34dp"
+        android:textColor="#FFFFFFFF"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nomeNovoJogadorid" />
+
+    <TextView
+        android:id="@+id/textoExibicaoJogadorid"
+        android:layout_width="315dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="34dp"
+        android:textColor="#FFFFFFFF"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoExibicaoPersonagemid" />
+
+    <TextView
+        android:id="@+id/textoExibicaoXpid"
+        android:layout_width="315dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="34dp"
+        android:textColor="#FFFFFFFF"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoExibicaoJogadorid" />
+
+    <TextView
+        android:id="@+id/textoExibicaoHpid"
+        android:layout_width="315dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="34dp"
+        android:textColor="#FFFFFFFF"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoExibicaoXpid" />
+
+    <TextView
+        android:id="@+id/textoExibicaoAtqid"
+        android:layout_width="315dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="34dp"
+        android:textColor="#FFFFFFFF"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoExibicaoHpid" />
 
 </android.support.constraint.ConstraintLayout>
