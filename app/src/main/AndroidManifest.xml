@@ -3,7 +3,7 @@
     xmlns:intent-FF="http://schemas.android.com/apk/res-auto"
     package="br.unb.appdev.igor">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -24,7 +24,8 @@
             android:name=".NewAdventureActivity"
             android:label="newAdventureActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".CadastroActivity"></activity>
+        <activity android:name=".CadastroActivity" />
+        <activity android:name=".TelaCombateActivity"></activity>
     </application>
 
 </manifest>

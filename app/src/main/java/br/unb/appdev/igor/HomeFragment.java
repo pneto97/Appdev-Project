@@ -4,6 +4,7 @@ package br.unb.appdev.igor;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ClipData;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,8 +24,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import br.unb.appdev.igor.Entidades.CvReference;
 
 
 /**
@@ -32,7 +39,8 @@ import java.util.List;
  */
 public class HomeFragment extends Fragment {
 
-
+    //private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+    //private DatabaseReference cvDatabase = databaseReference.child("CvReference");
 
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
@@ -92,8 +100,8 @@ public class HomeFragment extends Fragment {
         MainActivity.fragAtual = MainActivity.Fragments.HOME;
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.rv);
 
+        recyclerView = (RecyclerView) view.findViewById(R.id.rv);
         layoutManager = new LinearLayoutManager(recyclerView.getContext());
         recyclerView.setLayoutManager(layoutManager);
 
@@ -247,6 +255,43 @@ public class HomeFragment extends Fragment {
 
 
             }
+
+
         }
     }
+
+    /*
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseRecyclerAdapter<CvReference, CvRefViewHolder>firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<CvReference, CvRefViewHolder>
+                (CvReference.class,R.layout.cardview, CvRefViewHolder.class, cvDatabase) {
+            @Override
+            protected void populateViewHolder(CvRefViewHolder viewHolder, CvReference model, int position) {
+                viewHolder.setTitle(model.getTitle());
+
+            }
+        };
+
+        recyclerView.setAdapter(firebaseRecyclerAdapter);
+    }
+
+    public static class CvRefViewHolder extends RecyclerView.ViewHolder
+    {
+        View mView;
+        public CvRefViewHolder(View itemView)
+        {
+            super(itemView);
+            mView = itemView;
+        }
+        public void setTitle(String title){
+            TextView cvTitle = (TextView) mView.findViewById(R.id.nameAdventure);
+            cvTitle.setText(title);
+        }
+        public void setImg(Context ctx, String image)
+        {
+            ImageView cvImg = (ImageView) mView.findViewById(R.id.bgadventure);
+        }
+
+    } */
 }

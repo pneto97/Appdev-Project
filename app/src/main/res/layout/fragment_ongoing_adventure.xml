@@ -123,6 +123,16 @@
             tools:layout_editor_absoluteX="25dp"
             tools:layout_editor_absoluteY="145dp" />
 
+        <Button
+            android:id="@+id/botaoCombateid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="147dp"
+            android:layout_marginBottom="36dp"
+            android:text="Jogar" />
+
 
     </RelativeLayout>
 

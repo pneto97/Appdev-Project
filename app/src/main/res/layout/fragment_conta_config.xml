@@ -2,9 +2,10 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutid"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1e2843"
+    android:background="@color/contaConfig_background"
     tools:context=".ContaConfigFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -22,8 +23,8 @@
 
     <EditText
         android:id="@+id/nomeNovoPersonagemid"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_width="213dp"
+        android:layout_height="37dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:background="@android:color/darker_gray"
@@ -35,8 +36,8 @@
 
     <EditText
         android:id="@+id/nomeNovoJogadorid"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_width="213dp"
+        android:layout_height="37dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="19dp"
         android:background="@android:color/darker_gray"
@@ -51,13 +52,13 @@
         android:layout_width="313dp"
         android:layout_height="30dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="34dp"
         android:textColor="#FFFFFFFF"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomeNovoJogadorid" />
+        app:layout_constraintTop_toBottomOf="@+id/textoClasseid" />
 
     <TextView
         android:id="@+id/textoExibicaoJogadorid"
@@ -110,5 +111,44 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoExibicaoHpid" />
+
+    <TextView
+        android:id="@+id/textoClasseid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="12dp"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/nomeNovoJogadorid" />
+
+    <Button
+        android:id="@+id/botaoGuerreiroid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:text="Guerreiro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoExibicaoAtqid" />
+
+    <Button
+        android:id="@+id/botaoMagoid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:text="Mago"
+        app:layout_constraintStart_toEndOf="@+id/botaoGuerreiroid"
+        app:layout_constraintTop_toBottomOf="@+id/textoExibicaoAtqid" />
+
+    <Button
+        android:id="@+id/botaoArqueiroid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:text="Arqueira"
+        app:layout_constraintStart_toEndOf="@+id/botaoMagoid"
+        app:layout_constraintTop_toBottomOf="@+id/textoExibicaoAtqid" />
 
 </android.support.constraint.ConstraintLayout>

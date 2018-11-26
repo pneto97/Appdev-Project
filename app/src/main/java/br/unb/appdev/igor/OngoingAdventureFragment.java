@@ -1,11 +1,13 @@
 package br.unb.appdev.igor;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +17,8 @@ import android.widget.Toast;
  * A simple {@link Fragment} subclass.
  */
 public class OngoingAdventureFragment extends Fragment {
+
+    private Button botaoJogar;
 
     ImageView abaDeConteudo;
     TextView jogadoresText;
@@ -56,6 +60,7 @@ public class OngoingAdventureFragment extends Fragment {
         bgOngoingAdventure = view.findViewById(R.id.bgOngoingAdventure);
         nameOnGoingAdventure = view.findViewById(R.id.nameOnGoingAdventure);
         buttonNewSession = view.findViewById(R.id.button_new_session);
+        botaoJogar = (Button) view.findViewById(R.id.botaoCombateid);
         flip = false;
 
         Bundle bundle = this.getArguments();
@@ -103,6 +108,13 @@ public class OngoingAdventureFragment extends Fragment {
                 MainActivity.fragmentManager.beginTransaction().replace(
                         R.id.fragment_container,newSessionFragment,
                         null).addToBackStack(null).commit();
+            }
+        });
+
+        botaoJogar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), TelaCombateActivity.class));
             }
         });
 
