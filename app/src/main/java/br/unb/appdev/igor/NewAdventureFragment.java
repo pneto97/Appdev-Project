@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 import br.unb.appdev.igor.Entidades.CvReference;
 import br.unb.appdev.igor.Entidades.Personagens;
 import br.unb.appdev.igor.Entidades.Usuarios;
@@ -106,6 +108,7 @@ public class NewAdventureFragment extends Fragment {
                     nome = "Aventura sem título";
                 }
                 Adventure adv = new Adventure(nome,genImgID(MainActivity.adventures.size()));
+                adv.eventos = new ArrayList<>();
                 MainActivity.adventures.add(adv);
 
                 final CvReference cvReference = new CvReference();

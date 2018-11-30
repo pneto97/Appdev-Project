@@ -114,7 +114,9 @@ public class OngoingAdventureFragment extends Fragment {
         botaoJogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), TelaCombateActivity.class));
+                Intent intent = new Intent(getContext(), TelaCombateActivity.class);
+                intent.putExtra("sentPosition",position);
+                startActivity(intent);
             }
         });
 

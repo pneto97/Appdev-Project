@@ -21,7 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 public class TelaCombateActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-    private DatabaseReference cvDatabase = databaseReference.child("CvReference");
+    //private DatabaseReference cvDatabase = databaseReference.child("CvReference");
+    private DatabaseReference cvDatabase = databaseReference.child("Personagens");
     private DatabaseReference personagensReferencias = databaseReference.child("Personagens");
     private FirebaseAuth autenticacao;
 
@@ -39,6 +40,7 @@ public class TelaCombateActivity extends AppCompatActivity {
     int atqPers;
     int hpMonst;
     int atqMonst;
+    int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class TelaCombateActivity extends AppCompatActivity {
 
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
+        position = getIntent().getIntExtra("sentPosition",0);
         hpPlayer = (TextView) findViewById(R.id.hpPlayerid);
         atqPlayer = (TextView) findViewById(R.id.atqPlayerid);
         hpMonster = (TextView) findViewById(R.id.hpMonstroid);
@@ -55,11 +58,12 @@ public class TelaCombateActivity extends AppCompatActivity {
 
         atacar = (Button) findViewById(R.id.botaoAtacarid);
         defender = (Button) findViewById(R.id.botaoDefenderid);
+        correr = (Button) findViewById(R.id.botaoCorrerid);
 
         autenticacao = FirebaseAuth.getInstance();
         final String idUsuario = autenticacao.getCurrentUser().getUid();
 
-        personagensReferencias.child(idUsuario).child("hp").addValueEventListener(new ValueEventListener() {
+        personagensReferencias.child(idUsuario).child("Atributos").child("hp").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -76,7 +80,7 @@ public class TelaCombateActivity extends AppCompatActivity {
         });
 
 
-        personagensReferencias.child(idUsuario).child("atq").addValueEventListener(new ValueEventListener() {
+        personagensReferencias.child(idUsuario).child("Atributos").child("atq").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String atqPersonagem = String.valueOf(dataSnapshot.getValue());
@@ -91,7 +95,8 @@ public class TelaCombateActivity extends AppCompatActivity {
             }
         });
 
-        cvDatabase.child("new").child("hpMonstro").addValueEventListener(new ValueEventListener() {
+//        cvDatabase.child("new").child("hpMonstro").addValueEventListener(new ValueEventListener() {
+        cvDatabase.child(idUsuario).child("Aventuras").child(MainActivity.adventures.get(position).name).child("hpMonstro").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String hpMonstro = String.valueOf(dataSnapshot.getValue());
@@ -106,7 +111,7 @@ public class TelaCombateActivity extends AppCompatActivity {
             }
         });
 
-        cvDatabase.child("new").child("atqMonstro").addValueEventListener(new ValueEventListener() {
+        cvDatabase.child(idUsuario).child("Aventuras").child(MainActivity.adventures.get(position).name).child("atqMonstro").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String atqMonstro = String.valueOf(dataSnapshot.getValue());
@@ -129,7 +134,7 @@ public class TelaCombateActivity extends AppCompatActivity {
 
                 if(hpMonst <= 0){
                     textoResultado.setText("Você venceu a batalha!");
-                    cvDatabase.child("new").child("hpMonstro").setValue(0);
+                    cvDatabase.child(idUsuario).child("Aventuras").child(MainActivity.adventures.get(position).name).child("hpMonstro").setValue(0);
 
                     textoResultado.setTextColor(getResources().getColor(R.color.new_adv_background));
                     hpMonster.setText("•Hp (Monstro): 0");
@@ -144,7 +149,7 @@ public class TelaCombateActivity extends AppCompatActivity {
                     hpPlayer.setText("•Hp (Player): " + hpPers);
                     hpMonster.setText("•Hp (Monstro): " + hpMonst);
 
-                    cvDatabase.child("new").child("hpMonstro").setValue(hpMonst);
+                    cvDatabase.child(idUsuario).child("Aventuras").child(MainActivity.adventures.get(position).name).child("hpMonstro").setValue(hpMonst);
                 }
             }
         });
@@ -157,7 +162,7 @@ public class TelaCombateActivity extends AppCompatActivity {
 
                 if(hpMonst <= 0){
                     textoResultado.setText("Você venceu a batalha!");
-                    cvDatabase.child("new").child("hpMonstro").setValue(0);
+                    cvDatabase.child(idUsuario).child("Aventuras").child(MainActivity.adventures.get(position).name).child("hpMonstro").setValue(0);
 
                     textoResultado.setTextColor(getResources().getColor(R.color.new_adv_background));
                     hpMonster.setText("•Hp (Monstro): 0");
@@ -172,8 +177,15 @@ public class TelaCombateActivity extends AppCompatActivity {
                     hpPlayer.setText("•Hp (Player): " + hpPers);
                     hpMonster.setText("•Hp (Monstro): " + hpMonst);
 
-                    cvDatabase.child("new").child("hpMonstro").setValue(hpMonst);
+                    cvDatabase.child(idUsuario).child("Aventuras").child(MainActivity.adventures.get(position).name).child("hpMonstro").setValue(hpMonst);
                 }
+            }
+        });
+
+        correr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 

@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     String msg = "Android : ";
     public enum Fragments {
-        HOME,NEWADVENTURE,ONGOING,NEWSESSION,CONTA,TELAEDICAO1, TELAEDICAO2, TELAEDICAO3, TELACOMBATE;
+        HOME,NEWADVENTURE,ONGOING,NEWSESSION,NEWSESSIONTEXT,CONTA,TELAEDICAO1, TELAEDICAO2, TELAEDICAO3, TELACOMBATE;
     }
     public static Fragments fragAtual;
     public static List<Adventure> adventures;
